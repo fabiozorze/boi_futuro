@@ -19,7 +19,6 @@ warnings.filterwarnings("ignore", category=RuntimeWarning, message="Degrees of f
 
 logger = log.logger_online()
 
-logger.info('Started cycle')
 
 # Open the .pkl file in binary mode
 with open('features_selected.pkl', 'rb') as f:
@@ -63,12 +62,12 @@ if __name__ == '__main__':
     while on == True:
 
         dt = datetime.now()
-        if (dt.hour >= 9) & (dt.minute >= 0):
+        if (dt.hour >= 9) & (dt.minute >= 1):
 
 
             dt_hour_new = datetime.now().hour
 
-            if (dt.minute == 0) & (get_diff != dt_hour_new):
+            if (dt.minute == 1) & (get_diff != dt_hour_new):
                 dt = datetime.now()
                 dt_minute = datetime.now().hour
                 get_diff = dt.hour
@@ -149,8 +148,8 @@ if __name__ == '__main__':
 
                         else:
                             if (pred['pred'].iloc[-1] == 1) & (pred['pred'].iloc[-2] == -1):
-                                mt5.order_send(om.close(symbol='CCMK24'))
-                                mt5.order_send(om.Buy(symbol='CCMK24',position_size=1))
+                                mt5.order_send(om.close(symbol='BGIK24'))
+                                mt5.order_send(om.Buy(symbol='BGIK24',position_size=1))
                                 logger.info('BUY ORDER')
 
                             elif (pred['pred'].iloc[-1] == -1) & (pred['pred'].iloc[-2] == 1):

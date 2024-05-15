@@ -3,13 +3,12 @@ import sys
 from logging.handlers import SysLogHandler
 
 
-
 def logger_online():
 
-    PAPERTRAIL_HOST = 'logs4.papertrailapp.com'
-    PAPERTRAIL_PORT = 47622
+    PAPERTRAIL_HOST = 'logs5.papertrailapp.com'
+    PAPERTRAIL_PORT = 26744
 
-    logger = logging.getLogger('milho_futuro')
+    logger = logging.getLogger('boi_futuro')
     logger.setLevel(logging.INFO)
 
     syslog = SysLogHandler(address=(PAPERTRAIL_HOST, PAPERTRAIL_PORT))

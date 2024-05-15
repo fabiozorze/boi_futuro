@@ -74,11 +74,6 @@ with open('features_selected.pkl', 'wb') as file:
     pickle.dump(features_selected, file)
 
 
-
-
-
-
-
 ###########################################################
 
 data_all = exm.get_ohlc('BGI$', mt5.TIMEFRAME_H1, n=70000)
